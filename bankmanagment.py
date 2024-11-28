@@ -169,20 +169,9 @@ def contact_page(event):
     canvas.create_rectangle((550,200),(1300,1000),fill="black")
     canvas.create_line((600,450),(700,450),fill="#FA6775",width=4)
     main_text = canvas.create_text(600, 250, anchor="nw", text="Get in touch", fill="#F52549",font=("Inter",60))
-    ch='''Explore Google or
-Contact our Team.'''
+    ch='''Put any heading here'''
     text1 = canvas.create_text(600, 350, anchor="nw", text=ch, fill="white",font=("Inter",24))
-    ch1='''Phone Number: 
-    Amrit: 99009xxxxx
-    Neeraj: 89045xxxxx
-    Shashwat: 74392xxxxx
-
-Address: 
-    Computer Lab, BGSNPS, 
-    Hulimavu, Bangalore-560076
-
-Email: 
-    idkwhattoputhere@gmail.com'''
+    ch1='''whatever your want put here'''
     text2 = canvas.create_text(600,500,anchor='nw',text=ch1,fill="white",font=("Inter",24))
 
 def login_page(event):
