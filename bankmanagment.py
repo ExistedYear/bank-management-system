@@ -169,9 +169,20 @@ def contact_page(event):
     canvas.create_rectangle((550,200),(1300,1000),fill="black")
     canvas.create_line((600,450),(700,450),fill="#FA6775",width=4)
     main_text = canvas.create_text(600, 250, anchor="nw", text="Get in touch", fill="#F52549",font=("Inter",60))
-    ch='''Put any heading here'''
+    ch='''Explore Google or
+Contact our Team.'''
     text1 = canvas.create_text(600, 350, anchor="nw", text=ch, fill="white",font=("Inter",24))
-    ch1='''whatever your want put here'''
+    ch1='''Phone Number: 
+    Amrit: 99009xxxxx
+    Neeraj: 89045xxxxx
+    Shashwat: 74392xxxxx
+
+Address: 
+    Computer Lab, BGSNPS, 
+    Hulimavu, Bangalore-560076
+
+Email: 
+    idkwhattoputhere@gmail.com'''
     text2 = canvas.create_text(600,500,anchor='nw',text=ch1,fill="white",font=("Inter",24))
 
 def login_page(event):
@@ -294,17 +305,20 @@ def signup_page(event):
         address = add_entry.get()
         pin = pw_entry.get()
 
-        sql1 = '''
-    insert into personel_details
-    values
-    ('{}','{}','{}','{}','{}','{}');'''.format(str(accno),name,dob,email,phno,address)
-        sql2 = '''
-insert into bank_details (Accno,Name,pin) values
-('{}','{}',{})'''.format(str(accno),name,pin)
         try:
-            cursor.execute(sql1)
-            cursor.execute(sql2)
-            mycon.commit()
+            if email.endswith('@gmail.com') and len(str(phno))==10:
+                sql1 = '''
+            insert into personel_details
+            values
+            ('{}','{}','{}','{}','{}','{}');'''.format(str(accno),name,dob,email,phno,address)
+                sql2 = '''
+        insert into bank_details (Accno,Name,pin) values
+        ('{}','{}',{})'''.format(str(accno),name,pin)
+                cursor.execute(sql1)
+                cursor.execute(sql2)
+                mycon.commit()
+            else:
+                raise TypeError("Email doesnt end with '@gmail.com' or phone no is not 10 digits")
         except Exception as e:
             mycon.rollback()
             CTkMessagebox(message="Something went wrong!!!",icon="cancel", option_1="Ok")
@@ -344,8 +358,8 @@ def aboutus_page(event):
     scrolling(scroll)
     
     canvas.create_rectangle((550,200),(1300,1000),fill="black")
-    text1='''No humans were harmed during the creation 
-    of this project.(excluding Neeraj)'''
+    text1='''Just a couple of guys trying to create
+    something for our computer project!!!'''
     canvas.create_text((600,300),text=text1,fill='white',font=("Inter",24),anchor='nw')
 
 def services_page(event):
